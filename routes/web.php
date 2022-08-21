@@ -33,7 +33,9 @@ Route::get('/dataTmisr', [tmisrController::class, 'lihatdata'])->name('dataTmisr
 Route::get('/showTmisr/{id}', [tmisrController::class, 'show'])->name('showTmisr');
 Route::post('/updateTmisr/{id}', [tmisrController::class, 'update'])->name('updateTmisr');
 Route::get('/deleteTmisr/{id}', [tmisrController::class, 'destroy'])->name('deleteTmisr');
-Route::get('/printTmisr', [tmisrController::class, 'generatePDF'])->name('printTmisr');
+Route::get('/cetakTmisr', [tmisrController::class, 'lihatTmisrCetak'])->name('cetakTmisr');
+Route::get('/word-export/{id}', [tmisrController::class, 'wordExport'])->name('word-export');
+//Route::get('/printTmisr', [tmisrController::class, 'printTmisr'])->name('printTmisr');
 //tms
 Route::get('/tmsCreate', [tmsController::class, 'create'])->name('tmsCreate');
 Route::get('/createTms', [tmsController::class, 'index'])->name('createTms');
@@ -42,6 +44,7 @@ Route::get('/dataTms', [tmsController::class, 'lihatdata'])->name('dataTms');
 Route::get('/showTms/{id}', [tmsController::class, 'show'])->name('showTms');
 Route::post('/updateTms/{id}', [tmsController::class, 'update'])->name('updateTms');
 Route::get('/deleteTms/{id}', [tmsController::class, 'destroy'])->name('deleteTms');
+Route::get('/cetakTms', [tmsController::class, 'lihatTmsCetak'])->name('cetakTms');
 //tsptr
 Route::get('/tsptCreate', [tsptController::class, 'create'])->name('tsptCreate');
 Route::get('/createTspt', [tsptController::class, 'index'])->name('createTspt');
@@ -50,3 +53,4 @@ Route::get('/dataTspt', [tsptController::class, 'lihatdata'])->name('dataTspt');
 Route::get('/showTspt/{id}', [tsptController::class, 'show'])->name('showTspt');
 Route::post('/updateTspt/{id}', [tsptController::class, 'update'])->name('updateTspt');
 Route::get('/deleteTspt/{id}', [tsptController::class, 'destroy'])->name('deleteTspt');
+Route::get('/cetakTspt', [tsptController::class, 'lihatTsptCetak'])->name('cetakTspt');

@@ -67,9 +67,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('CETAK SURAT') }}
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <a class="btn btn-primary" href="{{ url('cetakTms') }}">
                                     {{ __('CETAK LAMPIRAN') }}
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

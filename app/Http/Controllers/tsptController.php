@@ -18,6 +18,15 @@ class tsptController extends Controller
         return view('crud.createTspt');
     }
 
+    public function lihatTsptCetak()
+    {
+        //
+        $data = M_tspt::all();
+        return view('crud.cetakTspt')->with([
+            'data' => $data
+        ]);
+    }
+
     public function lihatdata()
     {
         //

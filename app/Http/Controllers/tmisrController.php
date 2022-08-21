@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\M_tmisr;
 use Illuminate\Http\Request;
-use App\Exports\TmisrExport;
-use Maatwebsite\Excel\Facedes\Excel;
+use PhpOffice\PhpWord\TemplateProcessor;
+use SebastianBergmann\Template\Template;
 
 class tmisrController extends Controller
 {
@@ -18,6 +18,15 @@ class tmisrController extends Controller
     {
         //
         return view('crud.createTmisr');
+    }
+
+    public function lihatTmisrCetak()
+    {
+        //
+        $data = M_tmisr::all();
+        return view('crud.cetakTmisr')->with([
+            'data' => $data
+        ]);
     }
 
     public function lihatdata()
@@ -109,7 +118,28 @@ class tmisrController extends Controller
         return redirect('dataTmisr');
     }
 
-    public function exportTmisr(){
-        return Excel::download(new TmisrExport, 'data-lampiran-tmisr.xlsx');
+    /**public function printTmisr(){
+        $data = M_tmisr::all();
+        $pdf = PDF::loadview('crud.dataTmisr', ['data' => $data]);
+        return $pdf -> download('terlampir-tmisr.pdf');
+    }*/
+
+    public function wordExport($id){
+        $data = M_tmisr::findOrFail($id);
+        $TemplateProcessor = new TemplateProcessor( 'word-template/tmisr.docx' );
+        $TemplateProcessor->setValue ('id', $data->id);
+        $TemplateProcessor->setValue ('tanggal_pemeriksaan', $data->tanggal_pemeriksaan);
+        $TemplateProcessor->setValue ('metode_pemeriksaan', $data->metode_pemeriksaan);
+        $TemplateProcessor->setValue ('client_id', $data->client_id);
+        $TemplateProcessor->setValue ('client_name', $data->client_name);
+        $TemplateProcessor->setValue ('nama_stasiun', $data->nama_stasiun);
+        $TemplateProcessor->setValue ('alamat_stasiun', $data->alamat_stasiun);
+        $TemplateProcessor->setValue ('koordinat', $data->stasiun_lawan);
+        $TemplateProcessor->setValue ('tx', $data->tx);
+        $TemplateProcessor->setValue ('rx', $data->rx);
+        $TemplateProcessor->setValue ('bw', $data->status);
+        $TemplateProcessor->setValue ('keterangan', $data->keterangan);
+        $TemplateProcessor->saveAs('tmisr.docx');
+        return response() -> download('tmisr.docx')->deleteFileAfterSend(true);
     }
 }

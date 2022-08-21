@@ -18,6 +18,15 @@ class tmsController extends Controller
         return view('crud.createTms');
     }
 
+    public function lihatTmsCetak()
+    {
+        //
+        $data = M_tms::all();
+        return view('crud.cetakTms')->with([
+            'data' => $data
+        ]);
+    }
+
     public function lihatdata()
     {
         //

@@ -69,10 +69,10 @@
                                 <a  class="btn btn-primary" href="{{ route('createTmisr') }}">
                                     {{ __('TAMBAH') }}
                                 </a>
-                                <button type="submit" class="btn btn-primary">
+                                <a  class="btn btn-primary" href="{{ url('word-export/' . $dataTmisr->id) }}">
                                     {{ __('CETAK SURAT') }}
-                                </button>
-                                <a class="btn btn-primary" href="{{ url('printTmisr') }}">
+                                </a>
+                                <a class="btn btn-primary" href="{{ url('cetakTmisr') }}">
                                     {{ __('CETAK LAMPIRAN') }}
                                 </a>
                             </div>
