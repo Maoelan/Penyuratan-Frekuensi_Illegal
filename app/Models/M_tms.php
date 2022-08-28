@@ -16,6 +16,7 @@ class M_tms extends Model
         'id',
         'tanggal_pemeriksaan',
         'metode_pemeriksaan',
+        'client_id',
         'client_name',
         'kategori_pengguna',
         'merk_perangkat',
@@ -23,6 +24,7 @@ class M_tms extends Model
         'no_seri',
         'no_sertifikat',
         'jenis_perangkat',
+        'lokasi_segel',
         'status',
         'keterangan'
     ];

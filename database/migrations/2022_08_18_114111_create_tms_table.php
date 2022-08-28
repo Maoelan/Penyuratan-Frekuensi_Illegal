@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('no_seri', 50);
             $table->string('no_sertifikat', 50);
             $table->string('jenis_perangkat', 50);
+            $table->string('lokasi_segel', 50);
             $table->string('status', 30);
             $table->longText('keterangan');
             $table->softDeletes();

@@ -31,6 +31,9 @@
                                     <td>Tx</td>
                                     <td>Rx</td>
                                     <td>Bw</td>
+                                    <td>Jenis Barang</td>
+                                    <td>Merk/Type</td>
+                                    <td>Lokasi Segel</td>
                                     <td>Status</td>
                                     <td>Mulai Beroperasi</td>
                                     <td>Keterangan</td>
@@ -50,6 +53,9 @@
                                     <td>{{ $dataTmisr->tx }}</td>
                                     <td>{{ $dataTmisr->rx }}</td>
                                     <td>{{ $dataTmisr->bw }}</td>
+                                    <td>{{ $dataTmisr->jenis_barang }}</td>
+                                    <td>{{ $dataTmisr->merk_type }}</td>
+                                    <td>{{ $dataTmisr->lokasi_segel }}</td>
                                     <td>{{ $dataTmisr->status }}</td>
                                     <td>{{ $dataTmisr->mulai_beroperasi }}</td>
                                     <td>{{ $dataTmisr->keterangan }}</td>
@@ -69,11 +75,11 @@
                                 <a  class="btn btn-primary" href="{{ route('createTmisr') }}">
                                     {{ __('TAMBAH') }}
                                 </a>
-                                <a  class="btn btn-primary" href="{{ url('word-export/' . $dataTmisr->id) }}">
-                                    {{ __('CETAK SURAT') }}
-                                </a>
-                                <a class="btn btn-primary" href="{{ url('cetakTmisr') }}">
+                                <a class="btn btn-primary" href="{{ route('cetakTmisr') }}">
                                     {{ __('CETAK LAMPIRAN') }}
+                                </a>
+                                <a  class="btn btn-primary" href="{{ url('createDataSurat') }}">
+                                    {{ __('CETAK SURAT') }}
                                 </a>
                             </div>
                         </div>

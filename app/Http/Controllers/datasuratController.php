@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\M_datasurat;
+use App\Models\M_tmisr;
 use Illuminate\Http\Request;
-use App\Models\M_tspt;
 use PhpOffice\PhpWord\TemplateProcessor;
+use SebastianBergmann\Template\Template;
 
-class tsptController extends Controller
+class datasuratController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,26 +18,18 @@ class tsptController extends Controller
     public function index()
     {
         //
-        return view('crud.createTspt');
-    }
-
-    public function lihatTsptCetak()
-    {
-        //
-        $data = M_tspt::all();
-        return view('crud.cetakTspt')->with([
-            'data' => $data
-        ]);
+        return view('crud.createDataSurat');
     }
 
     public function lihatdata()
     {
         //
-        $data = M_tspt::all();
-        return view('crud.dataTspt')->with([
+        $data = M_datasurat::all();
+        return view('crud.dataDataSurat')->with([
             'data' => $data
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -57,8 +51,8 @@ class tsptController extends Controller
     {
         //
         $data = $request->except(['_token']);
-        M_tspt::insert($data);
-        return redirect('/dataTspt');
+        M_datasurat::insert($data);
+        return redirect('/dataDataSurat');
     }
 
     /**
@@ -70,9 +64,9 @@ class tsptController extends Controller
     public function show($id)
     {
         //
-        $data = M_tspt::findOrFail($id);
-        return view('crud.showTspt')->with([
-        'data' => $data
+        $data = M_datasurat::findOrFail($id);
+        return view('crud.showDataSurat')->with([
+            'data' => $data
         ]);
     }
 
@@ -97,10 +91,10 @@ class tsptController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $item = M_tspt::findOrFail($id);
+        $item = M_datasurat::findOrFail($id);
         $data = $request->except(['_token']);
         $item->update($data);
-        return redirect('dataTspt');
+        return redirect('dataDataSurat');
     }
 
     /**
@@ -112,14 +106,16 @@ class tsptController extends Controller
     public function destroy($id)
     {
         //
-        $item = M_tspt::findOrFail($id);
+        $item = M_datasurat::findOrFail($id);
         $item->delete();
-        return redirect('dataTspt');
+        return redirect('dataDataSurat');
     }
 
-    public function wordExportTspt($id){
-        $data = M_tspt::findOrFail($id);
-        $TemplateProcessor = new TemplateProcessor( 'word-template/tspt.docx' );
+    public function wordExportDataSurat($id){
+        $dataSurat = M_datasurat::findOrFail($id);
+        $data = M_tmisr::findOrFail($id);
+
+        $TemplateProcessor = new TemplateProcessor( 'word-template/tmisr.docx' );
         $TemplateProcessor->setValue ('id', $data->id);
         $TemplateProcessor->setValue ('tanggal_pemeriksaan', $data->tanggal_pemeriksaan);
         $TemplateProcessor->setValue ('metode_pemeriksaan', $data->metode_pemeriksaan);
@@ -132,10 +128,29 @@ class tsptController extends Controller
         $TemplateProcessor->setValue ('tx', $data->tx);
         $TemplateProcessor->setValue ('rx', $data->rx);
         $TemplateProcessor->setValue ('bw', $data->bw);
-        $TemplateProcessor->setValue ('nomer_beroperasi', $data->nomer_beroperasi);
-        $TemplateProcessor->setValue ('mulai_beroperasi', $data->mulai_beroperasi);
-        $TemplateProcessor->setValue ('keterangan', $data->keterangan);
-        $TemplateProcessor->saveAs('tspt.docx');
-        return response() -> download('tspt.docx')->deleteFileAfterSend(true);
+        $TemplateProcessor->setValue ('status' , $data->status);
+        $TemplateProcessor->setValue ('jenis_barang' , $data->jenis_barang);
+        $TemplateProcessor->setValue ('merk_type' , $data->merk_type);
+        $TemplateProcessor->setValue ('lokasi_segel' , $data->lokasi_segel);
+        $TemplateProcessor->setValue ('mulai_beroperasi' , $data->mulai_beroperasi);
+        $TemplateProcessor->setValue ('keterangan', $data->keterangan);  
+        
+        $TemplateProcessor->setValue ('id', $dataSurat->id);
+        $TemplateProcessor->setValue ('nama_pemilik', $dataSurat->nama_pemeriksa);
+        $TemplateProcessor->setValue ('nik_pemilik', $dataSurat->nik_pemilik);
+        $TemplateProcessor->setValue ('jenis_kelamin', $dataSurat->jenis_kelamin);
+        $TemplateProcessor->setValue ('agama', $dataSurat->agama);
+        $TemplateProcessor->setValue ('pekerjaan', $dataSurat->pekerjaan);
+        $TemplateProcessor->setValue ('agama', $dataSurat->agama);
+        $TemplateProcessor->setValue ('jabatan', $dataSurat->jabatan);
+        $TemplateProcessor->setValue ('alamat', $dataSurat->alamat);
+        $TemplateProcessor->setValue ('bertindak_untuk', $dataSurat->bertindak_untuk);
+        $TemplateProcessor->setValue ('nama_pemeriksa', $dataSurat->nama_pemeriksa);
+        $TemplateProcessor->setValue ('nip_pemeriksa', $dataSurat->nip_pemeriksa);
+        $TemplateProcessor->setValue ('nama_kbalai', $dataSurat->nama_kbalai);
+        $TemplateProcessor->setValue ('nip_kbalai', $dataSurat->nip_kbalai);
+
+        $TemplateProcessor->saveAs('surat_lampiran.docx');
+        return response() -> download('surat_lampiran.docx')->deleteFileAfterSend(true);
     }
 }

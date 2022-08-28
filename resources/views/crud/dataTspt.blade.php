@@ -32,6 +32,9 @@
                                     <td>Rx</td>
                                     <td>Bw</td>
                                     <td>Nomer ISR</td>
+                                    <td>Jenis Barang</td>
+                                    <td>Merk/Type</td>
+                                    <td>Lokasi Segel</td>
                                     <td>Mulai Beroperasi</td>
                                     <td>Keterangan</td>
                                 </tr>
@@ -51,6 +54,9 @@
                                     <td>{{ $dataTspt->rx }}</td>
                                     <td>{{ $dataTspt->bw }}</td>
                                     <td>{{ $dataTspt->nomer_isr }}</td>
+                                    <td>{{ $dataTspt->jenis_barang }}</td>
+                                    <td>{{ $dataTspt->merk_type }}</td>
+                                    <td>{{ $dataTspt->lokasi_segel }}</td>
                                     <td>{{ $dataTspt->mulai_beroperasi }}</td>
                                     <td>{{ $dataTspt->keterangan }}</td>
                                     <td>
@@ -69,11 +75,11 @@
                                 <a  class="btn btn-primary" href="{{ route('createTspt') }}">
                                     {{ __('TAMBAH') }}
                                 </a>
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('CETAK SURAT') }}
-                                </button>
                                 <a class="btn btn-primary" href="{{ url('cetakTspt') }}">
                                     {{ __('CETAK LAMPIRAN') }}
+                                </a>
+                                <a  class="btn btn-primary" href="{{ url('word-export-tspt/' . $dataTspt->id) }}">
+                                    {{ __('CETAK SURAT') }}
                                 </a>
                             </div>
                         </div>

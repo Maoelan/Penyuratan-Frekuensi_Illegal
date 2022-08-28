@@ -25,7 +25,10 @@ class M_tspt extends Model
         'tx',
         'rx',
         'bw',
-        'nomer_beroperasi',
+        'nomer_isr',
+        'jenis_barang',
+        'merk_type',
+        'lokasi_segel',
         'mulai_beroperasi',
         'keterangan'
     ];

@@ -37,6 +37,9 @@
                 <td>Rx</td>
                 <td>Bw</td>
                 <td>Nomer ISR</td>
+                <td>Jenis Barang</td>
+                <td>Merk/Type</td>
+                <td>Lokasi Segel</td>
                 <td>Mulai Beroperasi</td>
                 <td>Keterangan</td>
             </tr>
@@ -56,6 +59,9 @@
                 <td>{{ $dataTspt->rx }}</td>
                 <td>{{ $dataTspt->bw }}</td>
                 <td>{{ $dataTspt->nomer_isr }}</td>
+                <td>{{ $dataTspt->jenis_barang }}</td>
+                <td>{{ $dataTspt->merk_type }}</td>
+                <td>{{ $dataTspt->lokasi_segel }}</td>
                 <td>{{ $dataTspt->mulai_beroperasi }}</td>
                 <td>{{ $dataTspt->keterangan }}</td>
             </tr>

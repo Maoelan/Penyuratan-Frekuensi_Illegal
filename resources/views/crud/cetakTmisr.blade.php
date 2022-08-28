@@ -36,6 +36,9 @@
                 <td>Tx</td>
                 <td>Rx</td>
                 <td>Bw</td>
+                <td>Jenis Barang</td>
+                <td>Merk/Type</td>
+                <td>Lokasi Segel</td>
                 <td>Status</td>
                 <td>Mulai Beroperasi</td>
                 <td>Keterangan</td>
@@ -55,6 +58,9 @@
                 <td>{{ $dataTmisr->tx }}</td>
                 <td>{{ $dataTmisr->rx }}</td>
                 <td>{{ $dataTmisr->bw }}</td>
+                <td>{{ $dataTmisr->jenis_barang }}</td>
+                <td>{{ $dataTmisr->merk_type }}</td>
+                <td>{{ $dataTmisr->lokasi_segel }}</td>
                 <td>{{ $dataTmisr->status }}</td>
                 <td>{{ $dataTmisr->mulai_beroperasi }}</td>
                 <td>{{ $dataTmisr->keterangan }}</td>

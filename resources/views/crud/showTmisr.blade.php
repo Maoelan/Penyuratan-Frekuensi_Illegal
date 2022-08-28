@@ -180,6 +180,48 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label for="jenis_barang" class="col-md-4 col-form-label text-md-end">{{ __('Jenis Barang') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="jenis_barang" type="text" class="form-control @error('jenis_barang') is-invalid @enderror" name="jenis_barang" value="{{ $data -> jenis_barang }}" required autocomplete="jenis_barang" autofocus>
+    
+                                    @error('jenis_barang')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="merk_type" class="col-md-4 col-form-label text-md-end">{{ __('Merk/Type') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="merk_type" type="text" class="form-control @error('merk_type') is-invalid @enderror" name="merk_type" value="{{ $data -> merk_type }}" required autocomplete="merk_type" autofocus>
+    
+                                    @error('merk_type')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="lokasi_segel" class="col-md-4 col-form-label text-md-end">{{ __('lokasi_segel') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="lokasi_segel" type="text" class="form-control @error('lokasi_segel') is-invalid @enderror" name="lokasi_segel" value="{{ $data -> lokasi_segel }}" required autocomplete="lokasi_segel" autofocus>
+    
+                                    @error('lokasi_segel')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label for="status" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
     
                                 <div class="col-md-6">

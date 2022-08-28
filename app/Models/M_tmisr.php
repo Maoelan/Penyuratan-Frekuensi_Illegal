@@ -25,7 +25,11 @@ class M_tmisr extends Model
         'tx',
         'rx',
         'bw',
+        'jenis_barang',
+        'merk_type',
+        'lokasi_segel',
         'status',
+        'mulai_beroperasi',
         'keterangan'
     ];
 

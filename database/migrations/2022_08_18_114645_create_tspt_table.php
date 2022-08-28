@@ -26,6 +26,9 @@ return new class extends Migration
             $table->double('rx');
             $table->double('bw');
             $table->string('nomer_isr', 50);
+            $table->string('jenis_barang', 50);
+            $table->string('merk_type', 50);
+            $table->string('lokasi_segel', 50);
             $table->date('mulai_beroperasi');
             $table->longText('keterangan');
             $table->softDeletes();

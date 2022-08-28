@@ -34,6 +34,7 @@
                 <td>No Seri</td>
                 <td>No Sertifikat</td>
                 <td>Jenis Perangkat</td>
+                <td>Lokasi Segel</td>
                 <td>Status</td>
                 <td>Keterangan</td>
             </tr>
@@ -50,7 +51,7 @@
                 <td>{{ $dataTms->no_seri }}</td>
                 <td>{{ $dataTms->no_sertifikat }}</td>
                 <td>{{ $dataTms->jenis_perangkat }}</td>
-                <td>{{ $dataTms->status }}</td>
+                <td>{{ $dataTms->lokasi_segel }}</td>
                 <td>{{ $dataTms->status }}</td>
                 <td>{{ $dataTms->keterangan }}</td>
             </tr>

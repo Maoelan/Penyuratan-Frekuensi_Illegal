@@ -29,6 +29,7 @@
                                     <td>No Seri</td>
                                     <td>No Sertifikat</td>
                                     <td>Jenis Perangkat</td>
+                                    <td>Lokasi Segel</td>
                                     <td>Status</td>
                                     <td>Keterangan</td>
                                 </tr>
@@ -45,7 +46,7 @@
                                     <td>{{ $dataTms->no_seri }}</td>
                                     <td>{{ $dataTms->no_sertifikat }}</td>
                                     <td>{{ $dataTms->jenis_perangkat }}</td>
-                                    <td>{{ $dataTms->status }}</td>
+                                    <td>{{ $dataTms->lokasi_segel }}</td>
                                     <td>{{ $dataTms->status }}</td>
                                     <td>{{ $dataTms->keterangan }}</td>
                                     <td>
@@ -64,11 +65,11 @@
                                 <a  class="btn btn-primary" href="{{ route('createTms') }}">
                                     {{ __('TAMBAH') }}
                                 </a>
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('CETAK SURAT') }}
-                                </button>
                                 <a class="btn btn-primary" href="{{ url('cetakTms') }}">
                                     {{ __('CETAK LAMPIRAN') }}
+                                </a>
+                                <a  class="btn btn-primary" href="{{ url('word-export-tms/' . $dataTms->id) }}">
+                                    {{ __('CETAK SURAT') }}
                                 </a>
                             </div>
                         </div>

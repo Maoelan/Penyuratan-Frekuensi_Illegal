@@ -124,7 +124,7 @@ class tmisrController extends Controller
         return $pdf -> download('terlampir-tmisr.pdf');
     }*/
 
-    public function wordExport($id){
+    public function wordExportTmisr($id){
         $data = M_tmisr::findOrFail($id);
         $TemplateProcessor = new TemplateProcessor( 'word-template/tmisr.docx' );
         $TemplateProcessor->setValue ('id', $data->id);
@@ -134,10 +134,12 @@ class tmisrController extends Controller
         $TemplateProcessor->setValue ('client_name', $data->client_name);
         $TemplateProcessor->setValue ('nama_stasiun', $data->nama_stasiun);
         $TemplateProcessor->setValue ('alamat_stasiun', $data->alamat_stasiun);
-        $TemplateProcessor->setValue ('koordinat', $data->stasiun_lawan);
+        $TemplateProcessor->setValue ('koordinat', $data->koordinat);
+        $TemplateProcessor->setValue ('stasiun_lawan', $data->stasiun_lawan);
         $TemplateProcessor->setValue ('tx', $data->tx);
         $TemplateProcessor->setValue ('rx', $data->rx);
         $TemplateProcessor->setValue ('bw', $data->status);
+        $TemplateProcessor->setValue ('status' , $data->status);
         $TemplateProcessor->setValue ('keterangan', $data->keterangan);
         $TemplateProcessor->saveAs('tmisr.docx');
         return response() -> download('tmisr.docx')->deleteFileAfterSend(true);

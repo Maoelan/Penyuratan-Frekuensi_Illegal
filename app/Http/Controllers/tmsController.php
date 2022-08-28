@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\M_tms;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class tmsController extends Controller
 {
@@ -113,5 +114,24 @@ class tmsController extends Controller
         $item = M_tms::findOrFail($id);
         $item->delete();
         return redirect('dataTms');
+    }
+
+    public function wordExportTms($id){
+        $data = M_tms::findOrFail($id);
+        $TemplateProcessor = new TemplateProcessor( 'word-template/tms.docx' );
+        $TemplateProcessor->setValue ('id', $data->id);
+        $TemplateProcessor->setValue ('tanggal_pemeriksaan', $data->tanggal_pemeriksaan);
+        $TemplateProcessor->setValue ('metode_pemeriksaan', $data->metode_pemeriksaan);
+        $TemplateProcessor->setValue ('client_name', $data->client_name);
+        $TemplateProcessor->setValue ('kategori_pengguna', $data->kategori_pengguna);
+        $TemplateProcessor->setValue ('merk_perangkat', $data->merk_perangkat);
+        $TemplateProcessor->setValue ('tipe_perangkat', $data->tipe_perangkat);
+        $TemplateProcessor->setValue ('no_seri', $data->no_seri);
+        $TemplateProcessor->setValue ('no_sertifikat', $data->no_sertifikat);
+        $TemplateProcessor->setValue ('jenis_perangkat', $data->jenis_perangkat);
+        $TemplateProcessor->setValue ('status', $data->status);
+        $TemplateProcessor->setValue ('keterangan', $data->keterangan);
+        $TemplateProcessor->saveAs('tms.docx');
+        return response() -> download('tms.docx')->deleteFileAfterSend(true);
     }
 }
