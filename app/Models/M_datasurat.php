@@ -24,8 +24,17 @@ class M_datasurat extends Model
         'bertindak_untuk',
         'nama_pemeriksa',
         'nip_pemeriksa',
+        'nik_pemeriksa',
+        'jenis_kelamin_pemeriksa',
+        'agama_pemeriksa',
+        'pekerjaan_pemeriksa',
+        'jabatan_pemeriksa',
+        'pangkat_gol',
+        'alamat_pemeriksa',
+        'bertindak_untuk_pemeriksa',
         'nama_kbalai',
-        'nip_kbalai'
+        'nip_kbalai',
+        'tanggal_now'
     ];
 
     protected $hidden;

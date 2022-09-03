@@ -20,6 +20,20 @@
                         <div class="card-body">
 
                             <div class="row mb-3">
+                                <label for="nomer_surat" class="col-md-4 col-form-label text-md-end">{{ __('Nomer Surat') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="nomer_surat" type="text" class="form-control @error('nomer_surat') is-invalid @enderror" name="nomer_surat" value="{{ old('nomer_surat') }}" required autocomplete="nomer_surat" autofocus>
+    
+                                    @error('nomer_surat')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label for="tanggal_pemeriksaan" class="col-md-4 col-form-label text-md-end">{{ __('Tanggal Pemeriksaan') }}</label>
     
                                 <div class="col-md-6">
@@ -214,6 +228,48 @@
                                     <input id="lokasi_segel" type="text" class="form-control @error('lokasi_segel') is-invalid @enderror" name="lokasi_segel" value="{{ old('lokasi_segel') }}" required autocomplete="lokasi_segel" autofocus>
     
                                     @error('lokasi_segel')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="jenis_barang_dua" class="col-md-4 col-form-label text-md-end">{{ __('Jenis Barang Dua') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="jenis_barang_dua" type="text" class="form-control @error('jenis_barang_dua') is-invalid @enderror" name="jenis_barang_dua" value="{{ old('jenis_barang_dua') }}" required autocomplete="jenis_barang_dua" autofocus>
+    
+                                    @error('jenis_barang_dua')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="merk_type_dua" class="col-md-4 col-form-label text-md-end">{{ __('Merk/Type Dua') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="merk_type_dua" type="text" class="form-control @error('merk_type_dua') is-invalid @enderror" name="merk_type_dua" value="{{ old('merk_type_dua') }}" required autocomplete="merk_type_dua" autofocus>
+    
+                                    @error('merk_type_dua')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="lokasi_segel_dua" class="col-md-4 col-form-label text-md-end">{{ __('Lokasi Segel Dua') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="lokasi_segel_dua" type="text" class="form-control @error('lokasi_segel_dua') is-invalid @enderror" name="lokasi_segel_dua" value="{{ old('lokasi_segel_dua') }}" required autocomplete="lokasi_segel_dua" autofocus>
+    
+                                    @error('lokasi_segel_dua')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

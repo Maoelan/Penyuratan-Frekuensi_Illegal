@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('tmisr', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nomer_surat', 30);
             $table->date('tanggal_pemeriksaan');
             $table->string('metode_pemeriksaan', 30);
             $table->string('client_id', 30);
@@ -28,6 +29,9 @@ return new class extends Migration
             $table->string('jenis_barang', 50);
             $table->string('merk_type', 50);
             $table->string('lokasi_segel', 50);
+            $table->string('jenis_barang_dua', 50);
+            $table->string('merk_type_dua', 50);
+            $table->string('lokasi_segel_dua', 50);
             $table->string('status', 30);
             $table->date('mulai_beroperasi');
             $table->longText('keterangan');

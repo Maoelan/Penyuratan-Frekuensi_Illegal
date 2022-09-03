@@ -117,6 +117,7 @@ class datasuratController extends Controller
 
         $TemplateProcessor = new TemplateProcessor( 'word-template/tmisr.docx' );
         $TemplateProcessor->setValue ('id', $data->id);
+        $TemplateProcessor->setValue ('nomer_surat', $data->nomer_surat);
         $TemplateProcessor->setValue ('tanggal_pemeriksaan', $data->tanggal_pemeriksaan);
         $TemplateProcessor->setValue ('metode_pemeriksaan', $data->metode_pemeriksaan);
         $TemplateProcessor->setValue ('client_id', $data->client_id);
@@ -132,11 +133,14 @@ class datasuratController extends Controller
         $TemplateProcessor->setValue ('jenis_barang' , $data->jenis_barang);
         $TemplateProcessor->setValue ('merk_type' , $data->merk_type);
         $TemplateProcessor->setValue ('lokasi_segel' , $data->lokasi_segel);
+        $TemplateProcessor->setValue ('jenis_barang_dua' , $data->jenis_barang_dua);
+        $TemplateProcessor->setValue ('merk_type_dua' , $data->merk_type_dua);
+        $TemplateProcessor->setValue ('lokasi_segel_dua' , $data->lokasi_segel_dua);
         $TemplateProcessor->setValue ('mulai_beroperasi' , $data->mulai_beroperasi);
         $TemplateProcessor->setValue ('keterangan', $data->keterangan);  
         
         $TemplateProcessor->setValue ('id', $dataSurat->id);
-        $TemplateProcessor->setValue ('nama_pemilik', $dataSurat->nama_pemeriksa);
+        $TemplateProcessor->setValue ('nama_pemilik', $dataSurat->nama_pemilik);
         $TemplateProcessor->setValue ('nik_pemilik', $dataSurat->nik_pemilik);
         $TemplateProcessor->setValue ('jenis_kelamin', $dataSurat->jenis_kelamin);
         $TemplateProcessor->setValue ('agama', $dataSurat->agama);
@@ -145,10 +149,22 @@ class datasuratController extends Controller
         $TemplateProcessor->setValue ('jabatan', $dataSurat->jabatan);
         $TemplateProcessor->setValue ('alamat', $dataSurat->alamat);
         $TemplateProcessor->setValue ('bertindak_untuk', $dataSurat->bertindak_untuk);
+
         $TemplateProcessor->setValue ('nama_pemeriksa', $dataSurat->nama_pemeriksa);
         $TemplateProcessor->setValue ('nip_pemeriksa', $dataSurat->nip_pemeriksa);
+        $TemplateProcessor->setValue ('nik_pemeriksa', $dataSurat->nik_pemeriksa);
+        $TemplateProcessor->setValue ('jenis_kelamin_pemeriksa', $dataSurat->jenis_kelamin_pemeriksa);
+        $TemplateProcessor->setValue ('agama_pemeriksa', $dataSurat->agama_pemeriksa);
+        $TemplateProcessor->setValue ('pekerjaan_pemeriksa', $dataSurat->pekerjaan_pemeriksa);
+        $TemplateProcessor->setValue ('agama_pemeriksa', $dataSurat->agama_pemeriksa);
+        $TemplateProcessor->setValue ('jabatan_pemeriksa', $dataSurat->jabatan_pemeriksa);
+        $TemplateProcessor->setValue ('pangkat_gol', $dataSurat->pangkat_gol);
+        $TemplateProcessor->setValue ('alamat_pemeriksa', $dataSurat->alamat_pemeriksa);
+        $TemplateProcessor->setValue ('bertindak_untuk_pemeriksa', $dataSurat->bertindak_untuk_pemeriksa);
+        
         $TemplateProcessor->setValue ('nama_kbalai', $dataSurat->nama_kbalai);
         $TemplateProcessor->setValue ('nip_kbalai', $dataSurat->nip_kbalai);
+        $TemplateProcessor->setValue ('tanggal_now', $dataSurat->tanggal_now);
 
         $TemplateProcessor->saveAs('surat_lampiran.docx');
         return response() -> download('surat_lampiran.docx')->deleteFileAfterSend(true);

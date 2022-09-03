@@ -21,15 +21,26 @@ return new class extends Migration
             $table->string('jenis_kelamin', 30);
             $table->string('agama', 50);
             $table->string('pekerjaan', 50);
-            $table->string('jabatan');
+            $table->string('jabatan', 50);
             $table->string('alamat', 50);
             $table->string('bertindak_untuk', 50);
 
             $table->string('nama_pemeriksa', 50);
+            $table->string('nik_pemeriksa', 50);
             $table->string('nip_pemeriksa', 50);
+            $table->string('jenis_kelamin_pemeriksa', 30);
+            $table->string('agama_pemeriksa', 50);
+            $table->string('pekerjaan_pemeriksa', 50);
+            $table->string('jabatan_pemeriksa', 50);
+            $table->string('pangkat_gol', 50);
+            $table->string('alamat_pemeriksa', 50);
+            $table->string('bertindak_untuk_pemeriksa', 50);
 
             $table->string('nama_kbalai', 50);
             $table->string('nip_kbalai', 50);
+
+            $table->date('tanggal_now');
+
             $table->softDeletes();
             $table->timestamps();
         });

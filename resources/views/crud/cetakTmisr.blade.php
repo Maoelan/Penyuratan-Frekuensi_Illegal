@@ -25,6 +25,7 @@
             <thead class="thead-dark" style="font-weight:bold">
             <tr>
                 <td>No</td>
+                <td>Nomer Surat</td>
                 <td>Tanggal Pemeriksaan</td>
                 <td>Metode Pemeriksaan</td>
                 <td>Client ID</td>
@@ -39,6 +40,9 @@
                 <td>Jenis Barang</td>
                 <td>Merk/Type</td>
                 <td>Lokasi Segel</td>
+                <td>Jenis Barang</td>
+                <td>Merk/Type</td>
+                <td>Lokasi Segel</td>
                 <td>Status</td>
                 <td>Mulai Beroperasi</td>
                 <td>Keterangan</td>
@@ -47,6 +51,7 @@
             @foreach ($data as $dataTmisr)
             <tr>
                 <td>{{ $dataTmisr->id }}</td>
+                <td>{{ $dataTmisr->nomer_surat }}</td>
                 <td>{{ $dataTmisr->tanggal_pemeriksaan }}</td>
                 <td>{{ $dataTmisr->metode_pemeriksaan }}</td>
                 <td>{{ $dataTmisr->client_id }}</td>
@@ -61,6 +66,9 @@
                 <td>{{ $dataTmisr->jenis_barang }}</td>
                 <td>{{ $dataTmisr->merk_type }}</td>
                 <td>{{ $dataTmisr->lokasi_segel }}</td>
+                <td>{{ $dataTmisr->jenis_barang_dua }}</td>
+                <td>{{ $dataTmisr->merk_type_dua }}</td>
+                <td>{{ $dataTmisr->lokasi_segel_dua }}</td>
                 <td>{{ $dataTmisr->status }}</td>
                 <td>{{ $dataTmisr->mulai_beroperasi }}</td>
                 <td>{{ $dataTmisr->keterangan }}</td>

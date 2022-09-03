@@ -30,8 +30,17 @@
                                     <td>Bertindak Untuk</td>
                                     <td>Nama Pemeriksa</td>
                                     <td>NIP Pemeriksa</td>
+                                    <td>NIK Pemeriksa</td>
+                                    <td>Jenis Kelamin Pemeriksa</td>
+                                    <td>Agama Pemeriksa</td>
+                                    <td>Pekerjaan Pemeriksa</td>
+                                    <td>Jabatan Pemeriksa</td>
+                                    <td>Pangkat/Gol</td>
+                                    <td>Alamat Pemeriksa</td>
+                                    <td>Bertindak Untuk</td>
                                     <td>Nama Kepala Balai</td>
                                     <td>NIP Kepala Balai</td>
+                                    <td>Tanggal</td>
                                 </tr>
                                 </thead>
                                 @foreach ($data as $dataDataSurat)
@@ -47,8 +56,17 @@
                                     <td>{{ $dataDataSurat->bertindak_untuk }}</td>
                                     <td>{{ $dataDataSurat->nama_pemeriksa }}</td>
                                     <td>{{ $dataDataSurat->nip_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->nik_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->jenis_kelamin_pemeriksa  }}</td>
+                                    <td>{{ $dataDataSurat->agama_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->pekerjaan_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->jabatan_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->pangkat_gol }}</td>
+                                    <td>{{ $dataDataSurat->alamat_pemeriksa }}</td>
+                                    <td>{{ $dataDataSurat->bertindak_untuk_pemeriksa }}</td>
                                     <td>{{ $dataDataSurat->nama_kbalai }}</td>
                                     <td>{{ $dataDataSurat->nip_kbalai }}</td>
+                                    <td>{{ $dataDataSurat->tanggal_now }}</td>
                                     <td>
                                         <a href="{{ url('/showDataSurat/' . $dataDataSurat->id) }}" class="btn btn-warning">Edit</a>
                                     </td>

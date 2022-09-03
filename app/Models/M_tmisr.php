@@ -14,6 +14,7 @@ class M_tmisr extends Model
     protected $fillable = [
         
         'id',
+        'nomer_surat',
         'tanggal_pemeriksaan',
         'metode_pemeriksaan',
         'client_id',
@@ -28,6 +29,9 @@ class M_tmisr extends Model
         'jenis_barang',
         'merk_type',
         'lokasi_segel',
+        'jenis_barang_dua',
+        'merk_type_dua',
+        'lokasi_segel_dua',
         'status',
         'mulai_beroperasi',
         'keterangan'
